@@ -12,32 +12,56 @@ body {
     "main";
 }
 
-#header {
-  background-color: purple;
-  display: flex;
-  justify-content: space-between;
-  grid-area: header;
-}
-
-#nav {
-  background-color: gold;
-  display: flex;
-  flex-direction: column;
-  grid-area: navigation;
-}
-
-#main {
-  grid-area: main;
-  background-color: skyblue;
-}
-
 @media (min-width: 768px) {
 .grid-container {
   grid-template-columns: 55px 1fr;
   grid-template-areas:
     "header header"
     "navigation main";
+ }
 }
+.header {
+  background-color: purple;
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+}
+
+.nav {
+  background-color: gold;
+  display: flex;
+  flex-direction: column;
+  grid-area: navigation;
+}
+
+.main {
+  display: grid;
+  grid-area: main;
+  background-color: skyblue;
+}
+
+@media (min-width: 768px) {
+  .main {
+      grid-template-columns: 50% ;
+    }
+}
+
+@media (min-width: 768px) {
+  .traffic, .social-container {
+      grid-column: 1 / span 2;
+    }
+}
+
+@media (min-width: 768px) {
+  .daily, .members, .message {
+      grid-column: 1 / span 1;
+    }
+}
+
+@media (min-width: 768px) {
+  .mobile-users, .recent-activity, .settings {
+      grid-column: 2 / span 1;
+     }
 }
 
 img {
