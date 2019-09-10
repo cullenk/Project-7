@@ -1,11 +1,53 @@
-img {
-  height: 50px;
-  width: 50px;
+
+grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header"
+    "navigation"
+    "main";
 }
 
 #header {
   background-color: purple;
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
 }
+
 #nav {
-  background-color: purple;
+  background-color: gold;
+  display: flex;
+  flex-direction: column;
+  grid-area: navigation;
+}
+
+#main {
+  grid-area: main;
+  background-color: skyblue;
+}
+
+@media (min-width: 768px) {
+.grid-container {
+  grid-template-columns: 55px 1fr;
+  grid-template-areas:
+    "header header"
+    "navigation main";
+}
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+}
+
+h1 {
+  margin: auto;
+}
+
+.bell {
+  margin: auto;
+  margin-left: 900px;
 }

@@ -5,55 +5,235 @@
     <title>Cullen's WebApp Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
+    <link href="toggle-switch.css" rel="stylesheet">
   </head>
 
 <body>
-<div class="grid-container">
-<header id="header">
-  <h1>YourApp</h1>
-  <div>
-    <img src="icons/icon-bell.svg" alt="bell icon">
+  <div class="grid-container">
+  <header id="header">
+    <h1>YourApp</h1>
+    <div class="bell">
+      <img src="icons/icon-bell.svg" alt="bell icon">
+    </div>
+    <div id="notifications">
+
+    </div>
+    <img src="images/Cullen.jpg" alt="Cullen">
+    <h3>Cullen Kuch</h3>
+  </header>
+
+
+  <nav id="nav">
+    <a>
+      <img src="icons/icon-dashboard.svg" alt="dashboard icon">
+    </a>
+    <a>
+      <img src="icons/icon-members.svg" alt="members icon">
+    </a>
+    <a>
+      <img src="icons/icon-visits.svg" alt="visits icon">
+    </a>
+    <a>
+      <img src="icons/icon-settings.svg" alt="settings icon">
+    </a>
+  </nav>
+
+  <main id="main">
+    <div class="main-header">
+      <h2 class="headline">Dashboard</h2>
+      <div class="main-header-search">
+        <input type="search" placeholder="Search...">
+      </div>
+    </div>
+
+    <div class="alert" id="alert" >
+    <!-- JS will insert alert here -->
+    </div>
+
+    <!-- line graph charts -->
+  <section class="traffic">
+    <div class="traffic-header">
+      <h3>Traffic</h3>
+      <ul class="traffic-nav">
+        <li class="traffic-nav-link">Hourly</li>
+        <li class="traffic-nav-link">Daily</li>
+        <li class="traffic-nav-link active">Weekly</li>
+        <li class="traffic-nav-link">Monthly</li>
+      </ul>
+    </div>
+    <div class="widget-container-full">
+      <!-- element line graph will attach to -->
+      <canvas id="traffic-chart"></canvas>
+    </div>
+  </section>
+
+  <!-- bar graph -->
+  <section class="daily">
+  <h3>Daily Traffic</h3>
+    <div class="widget-container-half">
+    <!-- element line graph will attach to -->
+    <canvas id="daily-chart"></canvas>
+    </div>
+  </section>
+
+  <!-- doughnut graph -->
+  <section class="mobile-users">
+  <h3>Mobile Users</h3>
+    <div class="widget-container-half">
+    <!-- element line graph will attach to -->
+    <canvas id="mobile-chart"></canvas>
+    </div>
+  </section>
+
+  <div class="social-container">
+    <div class="social-image">
+     <img src="icons/icon-twitter.svg" alt="twitter icon">
+      </div>
+       <div class="social-text">
+          <p>Twitter</p>
+          <p>10,345</p>
+       </div>
   </div>
-  <div id="notifications">
+
+  <div class="social-container">
+    <div class="social-image">
+     <img src="icons/icon-facebook.svg" alt="facebook icon">
+      </div>
+       <div class="social-text">
+          <p>Facebook</p>
+          <p>8,739</p>
+       </div>
+  </div>
+
+  <div class="social-container">
+    <div class="social-image">
+     <img src="icons/icon-google-plus.svg" alt="google icon">
+      </div>
+       <div class="social-text">
+          <p>Google</p>
+          <p>2,530</p>
+       </div>
+  </div>
+
+  <!-- new members widget -->
+  <section class="members">
+    <h3>New Members</h3>
+
+  <div class="members-container">
+        <img src="images/member-1.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Victoria Chambers</p>
+        <a href="#">victoria.chambers80@example.com</a>
+    </div>
+    <p>10/15/15</p>
+  </div>
+  <div class="members-container">
+        <img src="images/member-2.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Dale Byrd</p>
+        <a href="#">dale.byrd52@example.com</a>
+    </div>
+    <p>10/15/15</p>
+  </div>
+  <div class="members-container">
+        <img src="images/member-3.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Dawn Wood</p>
+        <a href="#">dawn.wood16@example.com</a>
+    </div>
+    <p>10/15/15</p>
+  </div>
+  <div class="members-container">
+        <img src="images/member-4.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Dan Oliver</p>
+        <a href="#">dan.oliver82@example.com</a>
+    </div>
+    <p>10/15/15</p>
+  </div>
+
+
+  <!-- Recent Activity widget -->
+  <section class="recent-activity">
+    <h3>Recent Activity</h3>
+
+  <div class="members-container">
+        <img src="images/member-1.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Victoria Chambers commented on YourApp's SEO Tips</p>
+        <p>4 hours ago</p>
+    </div>
+    <p>></p>
+  </div>
+  <div class="members-container">
+        <img src="images/member-2.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Dale Byrd liked the post Facebook's Changes for 2016</p>
+        <p>5 hours ago</p>
+    </div>
+    <p>></p>
+  </div>
+  <div class="members-container">
+        <img src="images/member-3.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Dawn Wood commented on Facebook's Changes for 2016</p>
+        <p>6 hours ago</p>
+    </div>
+    <p>></p>
+  </div>
+  <div class="members-container">
+        <img src="images/member-4.jpg" class="profile-image">
+    <div class="members-text">
+        <p>Dan Oliver posted YourApps's SEO Tips</p>
+        <p>1 day ago</p>
+    </div>
+    <p>></p>
+  </div>
+
+  <!-- Messaging Widget -->
+  <section class="message">
+    <h3>Message User</h3>
+    <form class="widget-container">
+      <input type="text" placeholder="Search for user" class="form-field" id="userField">
+      <textarea placeholder="Message for user" class="form-area" id= "messageField" ></textarea>
+      <button class="button-primary" id="send">Send</button>
+    </form>
+  </section>
+
+  <!-- local settings widget -->
+  <section class="settings">
+  <h3>Settings</h3>
+
+  <label class="switch-light switch-material" onclick="">
+    <input type="checkbox">
+
+    <strong>
+      Wireless
+    </strong>
+
+    <span>
+      <span>Off</span>
+      <span>On</span>
+      <a></a>
+    </span>
+  </label>
+
+  <select class="form-field" id="timezone">
+    <option disabled selected>Select a Timezone</option>
+    <option>Eastern</option>
+    <option>Standard</option>
+    <option>Pacific</option>
+    <option>Mountain</option>
+  </select>
+  <div class="settings-button" >
+    <button class="button-primary" id="save">Save</button>
+    <button class="button-disabled" id="cancel">Cancel</button>
+  </div>
+  </section>
+
+
+
+  </main>
 
   </div>
-  <img src="images/Cullen.jpg" alt="Cullen">
-  <h3>Cullen Kuch</h3>
-</header>
-
-
-
-
-<nav id="nav">
-  <a>
-    <img src="icons/icon-dashboard.svg" alt="dashboard icon">
-  </a>
-  <a>
-    <img src="icons/icon-members.svg" alt="members icon">
-  </a>
-  <a>
-    <img src="icons/icon-visits.svg" alt="visits icon">
-  </a>
-  <a>
-    <img src="icons/icon-settings.svg" alt="settings icon">
-  </a>
-</nav>
-
-<main>
-
-
-
-
-</main>
-
-
-
-
-
-
-
-
-
-
-</div>
 </body>
