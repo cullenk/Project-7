@@ -5,21 +5,21 @@
     <title>Cullen's WebApp Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-    <link href="toggle-switch.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/toggle-switch.css" rel="stylesheet">
   </head>
 
 <body>
   <div class="grid-container">
+
   <header class="header">
-    <h1>YourApp</h1>
+    <h1>Your<span class="light">App&trade;</span></h1>
     <div class="bell">
       <img src="icons/icon-bell.svg" alt="bell icon">
+      <span class="bell-dot"></span>
     </div>
-    <div id="notifications">
-
-    </div>
-    <img src="images/Cullen.jpg" alt="Cullen">
+    <div id="notifications"></div>
+    <img id="profile-img" src="images/Cullen.jpg" alt="Cullen">
     <h3>Cullen Kuch</h3>
   </header>
 
@@ -87,6 +87,7 @@
   </section>
 
 <!-- Social Media -->
+<div class="social-media">
   <div class="social-container">
     <div class="social-image">
      <img src="icons/icon-twitter.svg" alt="twitter icon">
@@ -116,7 +117,7 @@
           <p>2,530</p>
        </div>
   </div>
-
+</div>
   <!-- new members widget -->
   <section class="members">
     <h3>New Members</h3>
@@ -234,9 +235,10 @@
   </div>
   </section>
 
-
-
   </main>
 
   </div>
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="javascript/scripts.js"></script>
+ </body>
+</html>
