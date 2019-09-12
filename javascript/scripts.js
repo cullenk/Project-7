@@ -140,11 +140,11 @@ let mobileChart = new Chart(mobileCanvas, {
 
 send.addEventListener('click', () => {
   if (user.value === "" && message.value === "") {
-    alert('Please fill out user message fields before sending');
+    alert("Please fill out user message fields before sending");
   } else if (user.value === "") {
-    alert('Please fill out a user field before sending');
+    alert("Please fill out a user field before sending");
   } else if (message.value === "") {
-    alert('Please fill out a message field before sending');
+    alert("Please fill out a message field before sending");
   } else {
     alert(`Message successfully sent to: ${user.value}`);
   }
