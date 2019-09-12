@@ -52,6 +52,27 @@ let trafficChart = new Chart(trafficCanvas, {
   options: trafficOptions
 });
 
+// Traffic Tab Active
+
+const trafficList = document.querySelector('.traffic-nav');
+
+trafficList.addEventListener('click', (e) => {
+
+  if (e.target.tagName == 'LI') { //If the user clicks an li item
+    e.target.classList.add('traffic-active'); //give it the class "traffic active"
+
+
+  const li = document.querySelectorAll('.traffic-nav-link'); // Find all the traffic nav links
+    for (let i = 0; i < li.length; i ++) { // Loop through each li
+      if (li[i] === e.target) { // If the li is the one that is clicked, skip it
+        continue
+      };
+      li[i].classList.remove('traffic-active');//Remove the traffic active class
+    }
+  }
+});
+
+
 // data for daily traffic bar chart
 const dailyData = {
   labels: ["S", "M", "T", "W", "T", "F", "S"],

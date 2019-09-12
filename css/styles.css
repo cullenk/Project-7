@@ -104,16 +104,80 @@ header h3 {
     cursor: pointer;
 }
 
-/* Main Container */
+/* Main Dashboard */
 .main {
   display: grid;
   grid-area: main;
+  padding: 20px;
+  color: gray;
 }
 
 .main-header {
   display: flex;
   flex-direction: column;
 }
+
+.main-header-search input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#alert {
+    height: auto;
+    grid-column: 1;
+    transition: .8s ease-out;
+    width: 100%;
+}
+
+.alert-banner {
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #7377bf;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+    height: 25px;
+}
+
+.alert-banner p:last-child {
+    text-align: right;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+/* Traffic Header  */
+
+.traffic-header .traffic-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.traffic-nav li {
+   font-size: .9em;
+   font-weight: bold;
+   padding: 5px 8px;
+   list-style: none;
+   cursor: pointer;
+}
+
+.traffic-nav li:hover {
+    text-decoration: underline;
+ }
+
+ .traffic-active {
+    background-color: #81c98f;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Social Media */
 
 .social-container {
   width: 33%;
