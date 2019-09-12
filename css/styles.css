@@ -3,6 +3,10 @@ body {
   margin: 0;
 }
 
+h3 {
+  font-weight: bold;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 100%;
@@ -110,6 +114,12 @@ header h3 {
 }
 
 /* Main Dashboard */
+
+.headline {
+  color: black;
+  font-weight: bold;
+}
+
 .main {
   display: grid;
   grid-area: main;
@@ -156,12 +166,54 @@ header h3 {
     cursor: pointer;
     margin-left: 15px;
 }
+
+/* Notification box from bell */
+
+.notification-div {
+    position: absolute;
+    top: 50px;
+    left: 30%;
+    color: #4d4c72;
+    font-weight: bold;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 5px solid greenyellow;
+}
+
+.phrase-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #d1d1d1;
+    transition: .3s;
+}
+
+.phrase-div button {
+    border-radius: 5px;
+    border: none;
+    background-color: #df6f67;
+    color: white;
+    opacity: .7;
+    margin-left: 10px;
+}
+
+.phrase-div button:hover {
+    opacity: 1;
+}
+
+.phrase-div:last-child {
+    border: none;
+}
+
 /* Traffic Header and Chart */
 
-.traffic-header .traffic-nav {
+.traffic-header,
+.traffic-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 }
 
 .traffic-nav li {
@@ -170,7 +222,6 @@ header h3 {
    padding: 5px 8px;
    list-style: none;
    cursor: pointer;
-   margin-left: auto;
 }
 
 .traffic-nav li:hover {
@@ -183,10 +234,18 @@ header h3 {
     border-radius: 10px;
 }
 
-/* Daily Traffic  */
+/* Page Borders */
 
-
-
+.daily,
+.mobile-users,
+.social-media,
+.members,
+.recent-activity {
+  border-top: 1px solid gray;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 /* Social Media */
 
@@ -222,16 +281,18 @@ header h3 {
     fill: white;
 }
 
-.widget-container-full, .widget-container-half {
-    width: 95vw;
-   }
-/* New Members and Recent Activity */
+
+/* New Members */
 
 .members-container {
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid gray;
+}
+
+.members-container:last-child {
+    border: none;
 }
 
 .profile-image {
@@ -258,6 +319,13 @@ header h3 {
 
 .recent-container {
   display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid gray;
+}
+
+.recent-container:last-child {
+    border: none;
 }
 
 .recent-text {
@@ -273,7 +341,114 @@ header h3 {
 .recent-container p {
   margin-left: auto;
 }
+
+/* Message User  */
+
+.widget-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field,
+.form-area {
+    max-width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+}
+
+button {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #7477bf;
+  color: white;
+}
+
+/* Settings Field */
+
+.toggle-area {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.setting-text {
+    flex-basis: 220px;
+}
+
+.toggle-button-email,
+.toggle-button-profile {
+    color: white;
+    background-color: #787878;
+    padding: 0px 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    flex-direction: row-reverse;
+}
+
+.off {
+    flex-direction: row;
+    background-color: #4d4c72;
+}
+
+.toggle-button-email p,
+.toggle-button-profile p {
+    padding: 6px;
+    margin: auto;
+}
+
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+#timezone {
+  width: 100%;
+  padding: 5px;
+}
+
+.settings-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.settings-button button {
+    width: 49%;
+}
+
+.button-primary {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #7377bf;
+    color: white;
+    text-transform: uppercase;
+}
+
+.button-disabled {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #b2b2b2;
+    color: white;
+    text-transform: uppercase;
+}
+
 /* Media Queries */
+
+.widget-container-full, .widget-container-half {
+    width: 95vw;
+   }
 
 @media (min-width: 768px) {
 .grid-container {

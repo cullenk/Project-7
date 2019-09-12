@@ -6,19 +6,72 @@ const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
 
+// Notification Alert
+
 alert.innerHTML = `
 <div class="alert-banner">
 <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
 <p class="alert-banner-close">x</p>
 </div>
 `
+;
 
-alert.addEventListener('click', e => {
+alert.addEventListener('click', (e) => {
 const element = e.target;
 if (element.classList.contains("alert-banner-close")) {
 alert.style.display = "none"
 }
 });
+
+// Bell Notification Drop Down
+
+const bellIcon = document.querySelector('.bell-solo');
+const notificationBox = document.getElementById('notifications');
+let greenDot = 'green';
+
+const notificationPhrases = ['Meeting at noon',
+                            'Your day to pick lunch!',
+                            'Send files over to Jane'];
+
+bellIcon.addEventListener('click', () => { // When the user clicks on the notification box...
+    if (notificationBox.innerHTML == "" && greenDot == 'green') { // if the text is blank and the green dot is green...
+        const div = document.createElement('DIV'); // a new <div> is created and stored in the value "div".
+        div.classList.add('notification-div'); // That new <div> is given the class value "notification-div"
+        notificationBox.appendChild(div); //The div element is appeded to the notificationBox
+
+        for (i = 0; i < notificationPhrases.length; i += 1){ // Cycles through each phrase in the string for all of the following commands...
+            const divPhrase = document.createElement('DIV'); // creates a new div for each of them
+            divPhrase.classList.add('phrase-div'); // Gives the new divs a class name of "phrase-div"
+
+            const p = document.createElement('P'); // Creates a paragraph element, stores it in "p"
+            const buttonClose = document.createElement('BUTTON'); //creates another button element, stores it in buttonClose
+
+            p.innerHTML = notificationPhrases[i]; //adds the text of each phrase as the paragraphs inner HTML
+            div.appendChild(divPhrase); //adds the smaller div phrase to the larger div box
+            divPhrase.appendChild(p); // adds the text to each phrase
+            buttonClose.innerHTML = 'X'; // Gives the close button an X
+            divPhrase.appendChild(buttonClose); // actually appends the X to the phrase div
+        }
+
+    }  else if (notificationBox.innerHTML != "") { // Or if notification box isn't blank and contains text (meaning the div is open already)...
+        notificationBox.firstChild.remove(); // delete/close the first (main) div.
+    }
+
+    notificationBox.addEventListener('click', (e) => { // When the user clicks on the notification box
+        if (e.target.tagName == 'BUTTON' && e.target.classList == "") { // If what they clicked is a button element and there are no classes attached...
+            e.target.parentNode.remove(); //remove the parent/div itself
+        }
+
+        if (document.querySelector('.notification-div').innerHTML == '') { // Select the text of the .notification-div
+            notificationBox.firstChild.remove(); // remove the first child
+            document.querySelector('.bell-dot').style.display = 'none'; //remove the green dot, make it not true
+            greenDot = "";
+        }
+    });
+});
+
+
+// Chart Data
 
 let trafficData = {
   labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
