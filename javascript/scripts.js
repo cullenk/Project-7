@@ -1,12 +1,14 @@
 const alert = document.getElementById("alert");
+
 const trafficCanvas = document.getElementById("traffic-chart");
 const dailyCanvas = document.getElementById("daily-chart");
 const mobileCanvas = document.getElementById("mobile-chart");
+
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const send = document.getElementById("send");
 
-// Notification Alert
+//Purple Notification Alert
 
 alert.innerHTML = `
 <div class="alert-banner">

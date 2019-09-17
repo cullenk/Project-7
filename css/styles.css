@@ -113,11 +113,28 @@ header h3 {
     cursor: pointer;
 }
 
+  .nav a {
+    display: flex;
+  }
+
+  .nav img {
+    width: 30px;
+    margin: 0 auto;
+  }
+
+  .nav a:hover,
+  .nav a:focus {
+      border-top: 4px solid #4d4c72;
+      border-left: 4px solid greenyellow;
+  }
+
+
 /* Main Dashboard */
 
 .headline {
   color: black;
   font-weight: bold;
+  margin-top: auto;
 }
 
 .main {
@@ -166,6 +183,7 @@ header h3 {
     cursor: pointer;
     margin-left: 15px;
 }
+
 
 /* Notification box from bell */
 
@@ -368,6 +386,10 @@ button {
   color: white;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* Settings Field */
 
 .toggle-area {
@@ -459,6 +481,13 @@ button {
  }
 }
 
+@media (min-width: 768px){
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    width: 68px;
+  }
+
 @media (min-width: 768px) {
   .main {
       grid-template-columns: 50% ;
@@ -482,7 +511,6 @@ button {
       grid-column: 2 / span 1;
      }
 }
-
 
 @media (min-width: 768px) {
   .widget-container-full {
