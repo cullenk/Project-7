@@ -598,8 +598,35 @@ input:checked + .slider:before {
 }
 
 @media (min-width: 1024px) {
-  .main-header {
-    flex-direction: row;
+
+  .main {
+    padding-top: 0;
+    padding-right: auto;
   }
 
+  .main-header {
+    display: flex;
+    flex-direction: row;
+    background-color: #fbfbfb;
+  }
+
+  .main-header-search {
+    flex-grow: 12;
+    padding: 20px;
+    border-bottom: 1px solid gray;
+  }
+
+  .main-header-search input {
+    width: 400px;
+    float: right;
+  }
+
+  .headline {
+    flex-grow: 1;
+    background-color: white;
+    border-right: 1px solid gray;
+    padding: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 }
