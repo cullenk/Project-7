@@ -1,4 +1,4 @@
-const alert = document.getElementById("alert");
+const purpleAlert = document.getElementById("alert");
 
 const trafficCanvas = document.getElementById("traffic-chart");
 const dailyCanvas = document.getElementById("daily-chart");
@@ -6,11 +6,11 @@ const mobileCanvas = document.getElementById("mobile-chart");
 
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
-const send = document.getElementById("send");
+const messageForm = document.querySelector(".widget-container");
 
 //Purple Notification Alert
 
-alert.innerHTML = `
+purpleAlert.innerHTML = `
 <div class="alert-banner">
 <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
 <p class="alert-banner-close">x</p>
@@ -18,10 +18,10 @@ alert.innerHTML = `
 `
 ;
 
-alert.addEventListener('click', (e) => {
+purpleAlert.addEventListener('click', (e) => {
 const element = e.target;
 if (element.classList.contains("alert-banner-close")) {
-alert.style.display = "none"
+purpleAlert.style.transform = "scale(1, 0)"; // Scale from 100% to 0
 }
 });
 
@@ -193,7 +193,8 @@ let mobileChart = new Chart(mobileCanvas, {
 
 // Messaging section
 
-send.addEventListener('click', () => {
+messageForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // prevent it from submitting the form, validate first
   if (user.value === "" && message.value === "") {
     alert("Please fill out user message fields before sending");
   } else if (user.value === "") {
@@ -204,3 +205,56 @@ send.addEventListener('click', () => {
     alert(`Message successfully sent to: ${user.value}`);
   }
 });
+
+//TOggle Switches
+
+const toggleButtonEmail = document.querySelector('.toggle-button-email');
+const toggleButtonProfile = document.querySelector('.toggle-button-profile');
+const saveButton = document.getElementById('save-button');
+const cancelButton = document.getElementById('cancel-button');
+
+toggleButtonEmail.addEventListener('click', () => {
+    toggleButtonEmail.classList.toggle('off');
+
+    if (document.getElementById('email-toggle').innerHTML == "ON") {
+        document.getElementById('email-toggle').innerHTML = "OFF";
+
+        saveButton.addEventListener('click', () => {
+            //local storage
+            localStorage.setItem('emailStorage', 'off');
+        });
+
+    }  else if (document.getElementById('email-toggle').innerHTML == "OFF"){
+        document.getElementById('email-toggle').innerHTML = "ON";
+
+        saveButton.addEventListener('click', () => {
+            //local storage
+            localStorage.setItem('emailStorage', 'on');
+        });
+    }
+
+});
+
+toggleButtonProfile.addEventListener('click', () => {
+    toggleButtonProfile.classList.toggle('off');
+
+    if (document.getElementById('profile-toggle').innerHTML == "ON") {
+        document.getElementById('profile-toggle').innerHTML = "OFF";
+
+        saveButton.addEventListener('click', () => {
+            //local storage
+            localStorage.setItem('profileStorage', 'off');
+        });
+
+    }  else if (document.getElementById('profile-toggle').innerHTML == "OFF"){
+        document.getElementById('profile-toggle').innerHTML = "ON";
+
+        saveButton.addEventListener('click', () => {
+            //local storage
+            localStorage.setItem('profileStorage', 'on');
+        });
+
+    }
+});
+
+//Autcomplete
