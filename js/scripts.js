@@ -8,6 +8,9 @@ const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
 const messageForm = document.querySelector(".widget-container");
 
+//array members
+const memberList = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
+
 //Purple Notification Alert
 
 purpleAlert.innerHTML = `
@@ -257,4 +260,9 @@ toggleButtonProfile.addEventListener('click', () => {
     }
 });
 
-//Autcomplete
+// Autcomplete search
+
+const input = document.getElementById("userField");
+new Awesomplete(input, {
+	list: memberList
+});

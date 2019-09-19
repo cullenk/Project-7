@@ -1,6 +1,7 @@
 body {
   font-family: 'raleway', sans-serif;
   margin: 0;
+  
 }
 
 h3 {
@@ -8,7 +9,6 @@ h3 {
 }
 
 .grid-container {
-
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto;
@@ -230,6 +230,10 @@ header h3 {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+}
+
+.traffic-header {
+  width: 98%;
 }
 
 .traffic-nav li {
@@ -606,7 +610,8 @@ input:checked + .slider:before {
   }
 
   .widget-container-full {
-    width: 90vw;
+    width: auto;
+    padding-right: auto;
 }
   .widget-container-half {
     width: 45vw;
@@ -655,7 +660,6 @@ input:checked + .slider:before {
 
   .main {
     padding: auto;
-    padding-right: 0;
   }
 
   .main-header {
@@ -685,8 +689,6 @@ input:checked + .slider:before {
     margin-top: 0;
   }
 
-  #alert {
-    width: 98%;
-  }
+
 
 }
