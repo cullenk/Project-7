@@ -88,7 +88,7 @@ let trafficData = {
 };
 
 let trafficOptions = {
-  aspectRatio: 2.5,
+  aspectRatio: 0.8,
   animation: {
    duration: 0
   },
@@ -99,6 +99,7 @@ let trafficOptions = {
      }
    }]
   },
+  maintainAspectRatio: false,
   legend : {
     display: false
   }
@@ -138,7 +139,7 @@ const dailyData = {
     label: '# of Hits',
     data: [75, 115, 175, 125, 225, 200, 100],
     backgroundColor: '#7477BF',
-    borderWidth: 1
+    borderWidth: 3,
   }]
 };
 
