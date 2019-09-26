@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+canvas {
+  max-width: 100%;
+}
+
 body {
   font-family: 'raleway', sans-serif;
   margin: 0;
@@ -12,9 +16,8 @@ h3 {
 }
 
 .grid-container {
-  min-width: 100%;
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-template-areas:
     "header"
