@@ -688,7 +688,6 @@ h3 {
   }
 
   .widget-container-full {
-    padding-right: auto;
     width: calc(98vw - 75px);
   }
 
@@ -765,10 +764,6 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-
-  .main {
-    padding: auto;
-  }
 
   .grid-container {
     grid-template-columns: 85px 1fr;

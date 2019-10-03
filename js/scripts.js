@@ -14,7 +14,7 @@ let dailyChartLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 let dailyChartBgColor = '#7477bf';
 
 let deviceChartData = [2000, 550, 500];
-let deviceChartLabels = ['Desktop', 'Tablet', 'Phones'];
+let deviceChartLabels = ['Phones', 'Tablet', 'Desktop'];
 
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
@@ -205,8 +205,9 @@ const deviceOptions = {
   legend: {
     position: 'right',
     labels: {
-      boxWidth: 20,
-      fontStyle: 'bold'
+      boxWidth: 15,
+      fontStyle: 'bold',
+      padding: 20
      }
   }
 }
