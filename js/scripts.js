@@ -108,7 +108,8 @@ let trafficOptions = {
 let trafficChart = new Chart(trafficCanvas, {
   type: 'line',
   data: trafficData,
-  options: trafficOptions
+  options: trafficOptions,
+  radius: 10
 });
 
 // Traffic Tab Active

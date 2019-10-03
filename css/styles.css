@@ -10,9 +10,13 @@ body {
   font-family: 'raleway', sans-serif;
   margin: 0;
 }
+h1 {
+  font-size: 16px;
+}
 
 h3 {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .grid-container {
@@ -31,6 +35,7 @@ h3 {
   background-color: #7477bf;
   color: white;
   display: flex;
+  flex-wrap: wrap;
   grid-area: header;
   align-items: baseline;
   padding: 20px 20px;
@@ -133,7 +138,7 @@ header h3 {
 /* Charts sizing */
 
 .widget-container-full, .widget-container-half {
-    margin: 20px;
+    width: 100vw;
    }
 
 /* Main Dashboard */
@@ -180,6 +185,7 @@ header h3 {
 }
 
 .alert p {
+  font-size: 14px;
   margin: 0;
   padding: 0;
 }
@@ -236,11 +242,13 @@ header h3 {
 
 .traffic {
   border-bottom: 1px solid gray;
+  padding-bottom: 30px;
 }
 
 .traffic-header,
 .traffic-nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -250,7 +258,7 @@ header h3 {
 }
 
 .traffic-nav li {
-   font-size: .9em;
+   font-size: .5em;
    font-weight: bold;
    padding: 5px 8px;
    list-style: none;
@@ -274,6 +282,7 @@ header h3 {
 
 .daily {
   border-bottom: 1px solid gray;
+  padding-bottom: 30px;
 }
 
 /* Mobile */
@@ -284,6 +293,7 @@ header h3 {
 
 .mobile-users {
   border-bottom: 1px solid gray;
+  padding-bottom: 30px;
 }
 
 /* Social Media */
@@ -291,6 +301,7 @@ header h3 {
 .social-media {
   padding: 0 20px;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .social-header {
@@ -348,31 +359,35 @@ header h3 {
 }
 
 .members-container {
+  font-size: 11px;
   display: flex;
-  margin-top: 20px;
+  flex-wrap: wrap;
+  margin-top: auto;
   margin-bottom: 20px;
   border-bottom: 1px solid gray;
 }
 
 .members-container:last-child {
     border: none;
+    margin-bottom: 0;
 }
 
 .profile-image {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 33px;
+  max-height: 33px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
 
 .members-text {
   align-items: center;
+  margin-bottom: 15px;
   margin-left: 20px;
   line-height: 8px;
 }
 
 .members-text p {
-  font-size: 18px;
+  font-size: 10px;
 }
 
 .members-container p {
@@ -388,8 +403,10 @@ header h3 {
 
 .recent-container {
   display: flex;
-  padding-bottom: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
   margin-bottom: 20px;
+  margin-top: auto;
   border-bottom: 1px solid gray;
   align-items: flex-start;
 }
@@ -405,13 +422,13 @@ header h3 {
 }
 
 .recent-text p {
-  font-size: 18px;
+  font-size: 8px;
 }
 
 .recent-container p {
-  margin-left: auto;
   margin-top: 0;
   margin-bottom: 0;
+  margin-left: auto;
 }
 
 /* Message User  */
@@ -578,6 +595,36 @@ input:checked + .slider:before {
 
 /* Media Queries */
 
+@media (min-width: 500px) {
+
+h1 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.traffic-nav li {
+  font-size: 1em;
+}
+
+.members-text p {
+  font-size: 22px;
+}
+
+.profile-image {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.recent-text p {
+  font-size: 14px;
+}
+
+}
+
+
 @media (min-width: 768px) {
 .grid-container {
   grid-template-columns: 75px 1fr;
@@ -641,11 +688,12 @@ input:checked + .slider:before {
   }
 
   .widget-container-full {
-    width: auto;
     padding-right: auto;
-}
+    width: calc(98vw - 75px);
+  }
+
   .widget-container-half {
-    width: 45vw;
+    width: calc(45vw - 75px);
   }
 
   .social-media {
@@ -654,13 +702,17 @@ input:checked + .slider:before {
   }
 
   .social-container {
-    width: 33%;
-    margin-right: 40px;
+    width: 30%;
+    margin-right: auto;
   }
 
-  .social-container:last-child {
-        margin-right: 0;
-    }
+  .google {
+    margin-right: 0;
+     }
+
+  .social-text p:last-child {
+    font-size: 30px;
+  }
 
   .members,
   .message,
@@ -679,6 +731,10 @@ input:checked + .slider:before {
     border-bottom: 1px solid #d1d1d1;
   }
 
+  .members-text p{
+    font-size: 18px;
+  }
+
   .recent-activity,
   .settings {
     border-left: 1px solid gray;
@@ -687,6 +743,14 @@ input:checked + .slider:before {
   .recent-activity,
   .members {
     border-bottom: 1px solid #d1d1d1;
+  }
+
+  .recent-text {
+    width: 72%;
+  }
+
+  .recent-text p {
+    margin-bottom: 8px;
   }
 
   .message,
@@ -738,6 +802,16 @@ input:checked + .slider:before {
     margin-top: 0;
   }
 
+  .members-container {
+    font-size: 15px;
+  }
 
+  .members-container p {
+    font-size: 25px;
+  }
+
+  .recent-text p {
+    font-size: 22px;
+  }
 
 }
