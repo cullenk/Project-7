@@ -57,7 +57,7 @@ bellIcon.addEventListener('click', () => { // When the user clicks on the notifi
     if (notificationBox.innerHTML == "" && greenDot == 'green') { // if the text is blank and the green dot is green...
         const div = document.createElement('DIV'); // a new <div> is created and stored in the value "div".
         div.classList.add('notification-div'); // That new <div> is given the class value "notification-div"
-        notificationBox.appendChild(div); //The div element is appeded to the notificationBox
+        notificationBox.appendChild(div); //The div element is appended to the notificationBox
 
         for (i = 0; i < notificationPhrases.length; i += 1){ // Cycles through each phrase in the string for all of the following commands...
             const divPhrase = document.createElement('DIV'); // creates a new div for each of them
@@ -147,7 +147,7 @@ trafficList.addEventListener('click', (e) => {
       if (li[i] === e.target) { // If the li is the one that is clicked, skip it
         continue
       };
-      li[i].classList.remove('traffic-active');//Remove the traffic active class
+      li[i].classList.remove('traffic-active');//Remove the traffic active class from the rest of the li that aren't selected
     }
   }
 });
@@ -160,8 +160,7 @@ const dailyData = {
     label: '# of Hits',
     data: dailyChartData,
     backgroundColor: dailyChartBgColor,
-    borderWidth: 3,
-    barRoundness: 0.3
+    borderWidth: 3
   }]
 };
 
