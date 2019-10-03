@@ -2,7 +2,19 @@ const purpleAlert = document.getElementById("alert");
 
 const trafficCanvas = document.getElementById("traffic-chart");
 const dailyCanvas = document.getElementById("daily-chart");
-const mobileCanvas = document.getElementById("mobile-chart");
+const deviceCanvas = document.getElementById("mobile-chart");
+
+let trafficChartData = [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500];
+let trafficChartLabels = ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'];
+let trafficChartBgColor = 'rgba(116, 119, 191, 0.3)';
+let trafficChartBorderColor = 'rgba(116, 119, 191, 1)';
+
+let dailyChartData = [75, 115, 175, 125, 225, 200, 100];
+let dailyChartLabels = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+let dailyChartBgColor = '#7477bf';
+
+let deviceChartData = [2000, 550, 500];
+let deviceChartLabels = ['Desktop', 'Tablet', 'Phones'];
 
 const user = document.getElementById("userField");
 const message = document.getElementById("messageField");
@@ -25,7 +37,10 @@ purpleAlert.addEventListener('click', (e) => {
 const element = e.target;
 if (element.classList.contains("alert-banner-close")) {
 purpleAlert.style.transform = "scale(1, 0)"; // Scale from 100% to 0
-}
+purpleAlert.style.visibility = 'hidden';
+purpleAlert.style.height = '0';
+purpleAlert.style.padding = '0';
+ }
 });
 
 // Bell Notification Drop Down
@@ -79,11 +94,16 @@ bellIcon.addEventListener('click', () => { // When the user clicks on the notifi
 // Chart Data
 
 let trafficData = {
-  labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+  labels: trafficChartLabels,
   datasets: [{
-  data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
-  backgroundColor: 'rgba(116, 119, 191, .3)',
-  borderWidth: 1,
+  data: trafficChartData,
+  backgroundColor: trafficChartBgColor,
+  borderColor: trafficChartBorderColor,
+  lineTension: 0,
+  borderWidth: 2,
+  pointBackgroundColor: "#fff",
+  pointRadius: 5,
+  pointBorderWidth: 2
   }]
 };
 
@@ -135,12 +155,13 @@ trafficList.addEventListener('click', (e) => {
 
 // data for daily traffic bar chart
 const dailyData = {
-  labels: ["S", "M", "T", "W", "T", "F", "S"],
+  labels: dailyChartLabels,
   datasets: [{
     label: '# of Hits',
-    data: [75, 115, 175, 125, 225, 200, 100],
-    backgroundColor: '#7477BF',
+    data: dailyChartData,
+    backgroundColor: dailyChartBgColor,
     borderWidth: 3,
+    barRoundness: 0.3
   }]
 };
 
@@ -166,11 +187,11 @@ let dailyChart = new Chart(dailyCanvas, {
 
 // data for daily traffic doughnut chart
 
-const mobileData = {
-labels: ["Desktop", "Tablet", "Phones"],
+const deviceData = {
+labels: deviceChartLabels,
 datasets: [{
   label: '# of Users',
-  data: [2000, 550, 500],
+  data: deviceChartData,
   borderWidth: 0,
   backgroundColor: [
     '#7477BF',
@@ -180,7 +201,7 @@ datasets: [{
  }]
 };
 
-const mobileOptions = {
+const deviceOptions = {
   legend: {
     position: 'right',
     labels: {
@@ -190,10 +211,100 @@ const mobileOptions = {
   }
 }
 
-let mobileChart = new Chart(mobileCanvas, {
+let deviceChart = new Chart(deviceCanvas, {
   type: 'doughnut',
-  data: mobileData,
-  options: mobileOptions
+  data: deviceData,
+  options: deviceOptions
+});
+
+
+//Update charts function ------------------------------->
+function updateCharts(){
+    //update daily chart
+    dailyChart.data = {
+        labels: dailyChartLabels,
+         datasets: [{
+            label: '',
+            data: dailyChartData,
+            backgroundColor: dailyChartBgColor,
+            borderColor: 'rgba(0, 0, 0, 0)',
+            borderWidth: 0
+        }]
+    }
+    dailyChart.update();
+
+    //update traffic chart
+    trafficChart.data = {
+        labels: trafficChartLabels,
+        datasets: [{
+            label: '',
+            data: trafficChartData,
+            backgroundColor: trafficChartBgColor,
+            borderColor: trafficChartBorderColor,
+            borderWidth: 2,
+            lineTension: 0,
+            pointBackgroundColor: "#fff",
+            pointRadius: 5,
+            pointBorderWidth: 2
+        }]
+    }
+    trafficChart.update();
+
+    //update device chart
+    deviceChart.data = {
+        labels: deviceChartLabels,
+        datasets: [{
+            label: '',
+            data: deviceChartData,
+            backgroundColor: [
+              '#7477BF',
+              '#78CF82',
+              '#51B6C8'
+          ],
+            borderWidth: 0
+        }]
+    }
+    deviceChart.update();
+}
+
+// --hourly-------------------------------------------------------->
+const hourlyLi = document.querySelectorAll(".traffic-nav-link")[0];
+hourlyLi.addEventListener("click", () => {
+    trafficChartData = [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500];
+    dailyChartData = [75, 115, 175, 125, 225, 200, 100];
+    deviceChartData = [2000, 550, 500];
+
+    updateCharts();
+});
+
+// --daily-------------------------------------------------------->
+const dailyLi = document.querySelectorAll(".traffic-nav-link")[1];
+dailyLi.addEventListener("click", () => {
+    trafficChartData = [1234, 1542, 1235, 2343, 1234, 1752, 1432, 2342, 1234, 2134, 1123];
+    dailyChartData = [175, 51, 110, 75, 100, 98, 225];
+    deviceChartData = [1875, 655, 454];
+
+    updateCharts();
+});
+
+// --weekly-------------------------------------------------------->
+const weeklyLi = document.querySelectorAll(".traffic-nav-link")[2];
+weeklyLi.addEventListener("click", () => {
+    trafficChartData = [1963, 1534, 1952, 1613, 1983, 1742, 1823, 1673, 2301, 1873, 2400];
+    dailyChartData = [58, 83, 203, 105, 145, 85, 190];
+    deviceChartData = [1775, 480, 610];
+
+    updateCharts();
+});
+
+// --monthly-------------------------------------------------------->
+const monthlyLi = document.querySelectorAll(".traffic-nav-link")[3];
+monthlyLi.addEventListener("click", () => {
+    trafficChartData = [1143, 1234, 1021, 1560, 1345, 1673, 1578, 1932, 1242, 2123, 1983];
+    dailyChartData = [154, 157, 178, 185, 199, 210, 185];
+    deviceChartData = [1400, 792, 386];
+
+    updateCharts();
 });
 
 // Messaging section
@@ -211,7 +322,7 @@ messageForm.addEventListener('submit', (e) => {
   }
 });
 
-//TOggle Switches
+//Toggle Switches
 
 const toggleButtonEmail = document.querySelector('.toggle-button-email');
 const toggleButtonProfile = document.querySelector('.toggle-button-profile');
@@ -219,9 +330,9 @@ const saveButton = document.getElementById('save-button');
 const cancelButton = document.getElementById('cancel-button');
 
 toggleButtonEmail.addEventListener('click', () => {
-    toggleButtonEmail.classList.toggle('off');
+    toggleButtonEmail.classList.toggle('off'); //Adds or removes the "off" class name
 
-    if (document.getElementById('email-toggle').innerHTML == "ON") {
+    if (document.getElementById('email-toggle').innerHTML == "ON") { //Changes inner text from On to Off
         document.getElementById('email-toggle').innerHTML = "OFF";
 
         saveButton.addEventListener('click', () => {
@@ -229,7 +340,7 @@ toggleButtonEmail.addEventListener('click', () => {
             localStorage.setItem('emailStorage', 'off');
         });
 
-    }  else if (document.getElementById('email-toggle').innerHTML == "OFF"){
+    }  else if (document.getElementById('email-toggle').innerHTML == "OFF") { //Changes text from Off to On
         document.getElementById('email-toggle').innerHTML = "ON";
 
         saveButton.addEventListener('click', () => {
@@ -260,6 +371,39 @@ toggleButtonProfile.addEventListener('click', () => {
         });
 
     }
+});
+
+
+//save for timezone
+saveButton.addEventListener('click', () => {
+    let timezoneValue = document.getElementById('timezone').value;
+    localStorage.setItem('timezoneStorage', timezoneValue);
+});
+
+document.getElementById('timezone').value = localStorage.getItem('timezoneStorage');
+
+//local storage changes
+if (localStorage.getItem('emailStorage') == 'on') {
+    document.getElementById('email-toggle').innerHTML = "ON";
+    toggleButtonEmail.classList.toggle('off');
+}
+if (localStorage.getItem('profileStorage') == 'on') {
+    document.getElementById('profile-toggle').innerHTML = "ON";
+    toggleButtonProfile.classList.toggle('off');
+}
+
+//cancel button sets everthing to 'off' and removes storage
+cancelButton.addEventListener('click', () => {
+    localStorage.removeItem('emailStorage');
+    localStorage.removeItem('profileStorage');
+
+    document.getElementById('email-toggle').innerHTML = "OFF";
+    document.getElementById('profile-toggle').innerHTML = "OFF";
+    toggleButtonEmail.classList.remove('off');
+    toggleButtonProfile.classList.remove('off');
+
+    document.getElementById('timezone').value = 'select a timezone';
+    localStorage.setItem('timezoneStorage', 'select a timezone');
 });
 
 // Autcomplete search
